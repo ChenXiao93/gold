@@ -1,0 +1,3 @@
+#### pusle duration [ps]    chi3_real [m^2/V^2]   chi3_imag [m^2/V^2]
+0.2                         -15.4e-18               1.3e-18
+
