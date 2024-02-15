@@ -1,0 +1,59 @@
+CalculationMode = td
+FromScratch = yes
+PeriodicDimensions = 3
+ParKPoints = auto
+BoxShape = parallelepiped
+ExperimentalFeatures=yes
+PseudopotentialSet = pseudodojo_pbesol
+
+Smearing = 0.1*eV
+SmearingFunction = fermi_dirac
+RestartFixedOccupations = yes
+ExtraStates = 4
+
+Spacing= 0.40 
+ 
+%LatticeVectors
+  0.0 | 0.5 | 0.5 
+  0.5 | 0.0 | 0.5
+  0.5 | 0.5 | 0.0
+%
+
+a = 4.08*angstrom
+%LatticeParameters
+ a | a | a
+%
+
+%ReducedCoordinates
+ "Au" | 0.0 | 0.0 | 0.0 
+%
+
+nk = 20
+%KPointsGrid
+  nk| nk| nk
+%
+
+KPointsUseSymmetries = yes
+%SymmetryBreakDir
+  1 | 0 | 0
+%
+
+GaugeFieldPropagate = yes
+%GaugeVectorField      #施加外界扰动电磁场，以速率规范(velocity gauge)的形式给出
+ 0.1|0|0                             #单位为Hartree 
+%
+
+TDTimeStep =  0.05           #时间步长，单位是 hbar/Hartree
+TDPropagationTime = 1000  #  总传播时间 hbar/Ha
+TDPropagator = aetrs         #传播子算法
+TDExponentialMethod = lanczos 
+TDExpOrder = 16
+
+%TDOutput
+  total_current
+  gauge_field
+%
+
+PropagationSpectrumDampMode = exponential
+PropagationSpectrumDampFactor = 0.3*eV
+
