@@ -1,0 +1,70 @@
+CalculationMode = td
+FromScratch = yes
+PeriodicDimensions = 3
+ParKPoints = auto
+BoxShape = parallelepiped
+ExperimentalFeatures=yes
+XCFunctional = mgga_x_tb09 + lda_c_pw
+FilterPotentials = filter_none
+
+Spacing= 0.4   # Bohr
+
+%LatticeVectors
+  0.0 | 0.5 | 0.5
+  0.5 | 0.0 | 0.5
+  0.5 | 0.5 | 0.0
+%
+
+a = 6.7556   # Bohr
+%LatticeParameters
+ a | a | a
+%
+
+%ReducedCoordinates
+ "C" | 0.0 | 0.0 | 0.0
+ "C" | 1/4 | 1/4 | 1/4
+%
+
+nk = 16
+%KPointsGrid
+  nk |  nk |  nk
+ 0.5 | 0.5 | 0.5
+ 0.5 | 0.0 | 0.0
+ 0.0 | 0.5 | 0.0
+ 0.0 | 0.0 | 0.5
+%
+
+KPointsUseSymmetries = yes
+%SymmetryBreakDir
+  1 |  0 | 0
+%
+kick = 0.22
+%GaugeVectorField
+ kick |  0 | 0
+%
+GaugeFieldPropagate = yes
+GaugeFieldDelay = delay
+# 600 is 0 fs   41 au = 1 fs
+#  -10  -3  -2    -1   0    1     2    3    10  [fs]
+#  190  477 518  559  600  641   682  723  1010 [au]
+
+omega = 0
+%TDExternalFields
+    vector_potential | 1.0 | 0.0 | 0.0 | omega |  "pulse"
+%
+%TDFunctions
+ "pulse" |  tdf_from_file | "/beegfs/ya48xos/diamond/kickTADS/IRpump"
+%
+
+%TDOutput
+ gauge_field
+ total_current
+%
+
+TDPropagationTime = 1200
+TDPropagator = etrs
+TDTimeStep = 0.05
+TDExponentialMethod = lanczos
+TDExpOrder = 16
+TDStepsWithSelfConsistency=all_steps
+#TransientAbsorptionReference = "/beegfs/ya48xos/diamond/kickTADS/reference/td.general"
