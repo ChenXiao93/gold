@@ -1,0 +1,12 @@
+Path:  /beegfs/ya48xos/zno/modified_bandgap/new_nex/
+
+A = 10,20,25,30,35,40,50,70,100
+GaugeFieldPropagate = yes
+z-polarization    laser (0,0,1)
+k = 12*12*7
+s = 0.25 bohr
+exp: 16th-lanczos
+dt = 0.05
+gap = 3.28ev
+pbe+u
+
