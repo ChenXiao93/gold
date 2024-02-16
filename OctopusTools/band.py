@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import OctopusTools.Basic as cx
 
+#！！！添加测试
+
+
 def band(file,valence_band,conduction_band, efermi, xticks1, xticks2):
 
     band=np.loadtxt(file)
