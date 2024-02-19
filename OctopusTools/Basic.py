@@ -182,10 +182,11 @@ def dA_over_dt(t,A):
     return(dAdt)
 
 def current_cal(t_ind, A_ind, V):
-    # V [b^3]
+    # V [b^3]  J = -1/(4pic) * d2A/dt2  eq.1.17
     dAdt = dA_over_dt(t_ind, A_ind)
     dAdt2 = dA_over_dt(t_ind, dAdt)
-    J_cal = dAdt2 * V / (4 * np.pi * c_au)
+    J_cal = -1 * dAdt2 * V / (4 * np.pi * c_au)
+
     return(J_cal)
 
 def positivecomplex(complex1):
