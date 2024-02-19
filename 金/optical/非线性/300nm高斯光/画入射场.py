@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import OctopusTools.Basic as cx
-import OctopusTools.optical as op
 import OctopusTools.Laser as la
-import OctopusTools.chi3 as ch
 
 
 RATIO = [0.2, 0.5, 0.5, 0.5, 0.58]
@@ -17,8 +15,6 @@ fig = plt.figure(figsize=(6,7))
 fs  =12
 grid = plt.GridSpec(5, 1, wspace=0, hspace=0.4)
 plt.rcParams['xtick.direction'] = 'in'
-
-
 
 
 
@@ -52,11 +48,7 @@ for i in range(5):
     ax.set_xlim([0,end])
 
 
-
-
 ax.set_ylabel("A [Ha]", fontsize = fs)
 ax.set_xlabel("Propagation time t [fs]", fontsize = fs)
-
-fig.savefig("./tot_mod.png", dpi = 900, bbox_inches='tight')
 
 plt.show()

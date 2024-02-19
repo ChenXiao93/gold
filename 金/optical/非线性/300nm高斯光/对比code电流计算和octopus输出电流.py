@@ -34,6 +34,7 @@ for t in range(len(T)):
         plt.plot(time_ind, J_cal, label = "cal")
         plt.plot(time_ind, J_oct, label = "oct")
 
+        plt.title("$\lambda=300nm$, T=%sa.u., A=%sHa" % (T[t], amp[i]))
 
 plt.legend()
 plt.show()
