@@ -44,10 +44,12 @@ for t in range(len(T)):
     for i in range(len(amp)):
         # 通过电流计算介电函数
         time_ind, A_ind = cx.ReadData("./induced/t%s/A%s/gauge_field" % (T[t], amp[i]), 1, 2)
+        print(len(time_ind))
         time_ext, A_ext, envy = la.GaussianPulse(PropTime=T[t] + 0.05,
                                                 PulseDuration=int(T[t] * 2 / 5),
                                                 Wavelength=630,
                                                 Amplitude=amp[i], TimeStep=0.05, Phase=0)
+        print(len(time_ext))
         J_cal = cx.current_cal(t_ind=time_ind, A_ind=A_ind, V=114.5822)
         omega =  cx.Wavelength2Energy(630)  # eV
         # omegaa = cx.Wavelength2Energy(Wavelength_Ewmax[t])  # eV
